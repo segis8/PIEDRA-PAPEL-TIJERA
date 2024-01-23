@@ -2,14 +2,60 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PIEDRA PAPEL TIJERA</title>
-    <!-- Vincula tu archivo JavaScript externo aquí -->
-    <script src="juego.js" defer></script>
+    <title>Piedra, papel o tijera</title>
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
+    <header>
+        <h1>Charmander, Squirtel o Bulbasur</h1>
+        <p>ESCOGE TU PUTO MEJOR POKEMON</p>
+    </header>
+    <main>
+        <div>
+            <label for="nombre-jugador">Introduce tu nombre:</label>
+            <input type="text" id="nombre-jugador" placeholder="Nombre del jugador">
+            <button onclick="actualizarNombre()">Guardar Nombre</button>
+        </div>
+        <p class="instruciones" id="instruciones">
+            GANA EL PRIMERO EN LLEGAR A 5
+        </p>
+        <div class="marcador">
+           <p class="nombre nombre-jugador" id="nombre-jugador-display">Jugador</p>
+           <p class="nombre nombre-computadora">RED</p>
+           <p class="puntos">
+              <span id="puntos-usuario">0</span>
+              <span>-</span>
+              <span id="puntos-computadora">0</span>
+           </p>
+        </div>
+        <div class="elige-tu-pokemon" id="elige-tu-pokemon">
+            <h2>Elige tu pokemon para el siguiente turno</h2>
+            <div class="pokemons">
+                <button class="pokemon" id="fuego🔥">🔥</button>
+                <button class="pokemon" id="agua💧">💧</button>
+                <button class="pokemon" id="planta🍃">🍃</button>
+            
+            </div>  
+        </div>
+        <div class="mensaje disabled" id="mensaje">
+            <p>
+               Usaste <span class="eleccion" id="elecion-usuario">fuego🔥</span><br>
+               y el rival uso <span class="eleccion" id="elecion-computadora">agua💧</span>
 
-<!-- Contenido del cuerpo del documento (puedes dejar esto vacío ya que el juego se jugará desde la consola) -->
+            </p>
+            <p id="gana-punto">✌ !GANAS! ✌</p>
+        </div>
+        <button class="btn disabled" id="reiniciar">REINICIAR JUEGO</button>
+    </main>
 
+    <script src="juego.js"></script>
+    <script>
+        function actualizarNombre() {
+            const nombreJugador = document.getElementById("nombre-jugador").value;
+            document.getElementById("nombre-jugador-display").textContent = nombreJugador;
+        }
+    </script>
 </body>
-</html>
+</html> 
